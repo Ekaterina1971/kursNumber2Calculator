@@ -15,31 +15,31 @@ public class ParametrizedCalculatorServiceTests {
 
     @ParameterizedTest
     @MethodSource("indicateNumber")
-    void sumNamberst(Integer num1, Integer num2) {
+    void sumNambers(Integer num1, Integer num2) {
         String sum = calculatorService.sumNambers(num1, num2);
-        assertEquals(sum);
+        assertEquals((Integer)num1 + num2, sum);
     }
 
-    private void assertEquals(String sum) {
+    private void assertEquals(Integer i, String sum) {
     }
 
     @ParameterizedTest
     @MethodSource("indicateNumber")
     void subtractNambers(Integer num1, Integer num2) {
         String raznost = calculatorService.subtractNambers(num1, num2);
-        assertEquals(raznost);
+        assertEquals((Integer) num1 - num2,raznost);
     }
     @ParameterizedTest
     @MethodSource("indicateNumber")
     void multiplyNambers(Integer num1, Integer num2){
         String multiply = calculatorService.multiplyNambers(num1, num2);
-        assertEquals(multiply);
+        assertEquals((Integer) num1 * num2,multiply);
     }
     @ParameterizedTest
     @MethodSource("indicateNumber")
     void divideNambers(Integer num1, Integer num2){
         String divide = calculatorService.divideNambers(num1, num2);
-        assertEquals(divide);
+        assertEquals((Integer) num1 / num2,divide);
     }
     private static Stream<Arguments> indicateNumber() {
         return Stream.of(
